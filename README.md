@@ -83,6 +83,8 @@ Terraform state is managed in Azure Storage with separate state files for each e
     - Create terraform.tfvars files with your subscription ID and tenant ID
     - Initialize Terraform for each environment
 
+    More information is available in [`./docs/Terraform-Setup.md`](./docs/Terraform-Setup.md).s
+
 ### Environments
 
 The infrastructure is separated into four environments:

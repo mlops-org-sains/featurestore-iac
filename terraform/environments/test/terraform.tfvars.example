@@ -1,0 +1,8 @@
+# terraform.tfvars is auto-created using setup.sh script. It will look like this:
+
+subscription_id          = ""
+tenant_id                = ""
+environment              = "test"
+tf_state_resource_group  = "terraform"
+tf_state_storage_account = "<>"
+tf_state_container       = "tfstate"

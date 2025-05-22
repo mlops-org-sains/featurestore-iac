@@ -25,16 +25,19 @@ echo "Using Tenant ID: $TENANT_ID"
 echo "Setting subscription context..."
 az account set --subscription "$SUBSCRIPTION_ID"
 
+# Define required tags
+TAGS="email=team@example.com costcentre=CC123 live=yes servicename=FeatureStore environment=shared servicecatalogueID=SVC-001 dataRetention=90days dataClassification=confidential Project='MLOps Accelerator' Terraform=true"
+
 # Create resource group for Terraform state
 echo "Creating resource group for Terraform state..."
 RESOURCE_GROUP="terraform"
 LOCATION="eastus"
-az group create --name $RESOURCE_GROUP --location $LOCATION
+az group create --name $RESOURCE_GROUP --location $LOCATION --tags $TAGS
 
 # Create storage account for Terraform state
 echo "Creating storage account for Terraform state..."
 STORAGE_ACCOUNT="terraformmlops$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 8 | head -n 1)"
-az storage account create --name $STORAGE_ACCOUNT --resource-group $RESOURCE_GROUP --sku Standard_LRS
+az storage account create --name $STORAGE_ACCOUNT --resource-group $RESOURCE_GROUP --sku Standard_LRS --tags $TAGS
 
 # Create container for state files
 echo "Creating container for state files..."

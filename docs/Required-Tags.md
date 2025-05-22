@@ -39,10 +39,16 @@ The implementation follows these key principles:
    - Each resource and module already includes a `tags = local.tags` parameter
    - No changes needed to individual resource definitions
 
+4. **Terraform State Resources**:
+   - The `setup.sh` script applies the same required tags to the Terraform state resource group and storage account
+   - These resources are created directly with Azure CLI commands
+
 ## Adding New Tags
 
 To add a new required tag:
 
 1. Add the tag to the `local.tags` block in each environment's `main.tf`
 2. Add the corresponding variable in each environment's `variables.tf`
-3. Update the `setup.sh` script to include the new tag in `terraform.tfvars`
+3. Update the `setup.sh` script to:
+   - Include the new tag in the `terraform.tfvars` generation
+   - Add the new tag to the `TAGS` variable for Terraform state resources

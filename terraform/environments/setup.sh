@@ -70,6 +70,15 @@ environment          = "$ENV"
 tf_state_resource_group = "$RESOURCE_GROUP"
 tf_state_storage_account = "$STORAGE_ACCOUNT"
 tf_state_container   = "tfstate"
+
+# Required tags
+email               = "team@example.com"
+costcentre          = "CC123"
+live                = "yes"
+servicename         = "FeatureStore"
+servicecatalogueID  = "SVC-001"
+dataRetention       = "90days"
+dataClassification  = "confidential"
 EOF
 }
 

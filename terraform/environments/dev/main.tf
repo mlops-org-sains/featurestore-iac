@@ -38,9 +38,16 @@ locals {
   prefix = "mlops"
   env    = var.environment
   tags = {
-    Environment = title(var.environment)
-    Project     = "MLOps Accelerator"
-    Terraform   = "true"
+    Environment        = title(var.environment)
+    Project            = "MLOps Accelerator"
+    Terraform          = "true"
+    email              = var.email
+    costcentre         = var.costcentre
+    live               = var.live
+    servicename        = var.servicename
+    servicecatalogueID = var.servicecatalogueID
+    dataRetention      = var.dataRetention
+    dataClassification = var.dataClassification
   }
 }
 

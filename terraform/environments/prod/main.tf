@@ -81,7 +81,7 @@ module "aml_workspace" {
   key_vault_id                  = null  # Will be created by the module
   application_insights_id       = null  # Will be created by the module
   container_registry_id         = null  # Will be created by the module
-  public_network_access_enabled = false # More secure for production
+  public_network_access_enabled = true # WORKSHOP: Enabled for cross-environment demo
   tags                          = local.tags
 }
 

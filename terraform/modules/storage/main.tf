@@ -8,9 +8,8 @@ resource "azurerm_storage_account" "storage" {
   tags                     = var.tags
 
   network_rules {
-    default_action             = "Deny"
+    default_action             = "Allow" # WORKSHOP: Changed from "Deny" to allow easy access
     virtual_network_subnet_ids = var.subnet_id != null ? [var.subnet_id] : []
-    ip_rules                   = ["0.0.0.0/0"] # Allow all IPs for simplicity, should be restricted in production
     bypass                     = ["AzureServices"]
   }
 }

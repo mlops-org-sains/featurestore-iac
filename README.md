@@ -1,6 +1,6 @@
-# Azure MLOps Terraform Infrastructure
+# Azure MLOpsv3 Terraform Infrastructure
 
-This directory contains the Terraform code for deploying the Azure MLOps infrastructure.
+This directory contains the Terraform code for deploying the Azure MLOpsv3 infrastructure.
 
 ## Setup & Prerequisites
 

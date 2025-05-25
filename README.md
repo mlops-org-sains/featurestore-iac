@@ -15,6 +15,8 @@ This directory contains the Terraform code for deploying the Azure MLOps infrast
 
 4. **Check Installed Libraries**
    - Open the CMD or Git Bash Terminal to check if the following libraries are installed:
+   - Open the terminal (Ctrl +  or Terminal > New Terminal).
+   - Click the dropdown in the terminal tab and select Git Bash.
    ```
     terraform -version
     ```
@@ -44,8 +46,6 @@ This directory contains the Terraform code for deploying the Azure MLOps infrast
      git clone <repo_name.git>
      ```     
    - Make the script executable in VS Code:
-     - Open the terminal (`Ctrl + ` or Terminal > New Terminal).
-     - Click the dropdown in the terminal tab and select Git Bash.
      - Go to your local cloned directory
      - Run the command:
      ```

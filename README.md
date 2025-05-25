@@ -38,9 +38,10 @@ This directory contains the Terraform code for deploying the Azure MLOps infrast
    ```
 
 8. **Run the Code Using Git Bash Terminal**
-   - Make local dirctory to clone the git repo
+   - Make local dirctory to clone the git repo (if branch no used consider 2nd command)
      ```
-     git clone -b <branch name> <repo_name.git>
+     git clone -b <branch name> <repo_name.git> or
+     git clone <repo_name.git>
      ```     
    - Make the script executable in VS Code:
      - Open the terminal (`Ctrl + ` or Terminal > New Terminal).

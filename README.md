@@ -146,7 +146,7 @@ data "terraform_remote_state" "shared" {
   backend = "azurerm"
 
   config = {
-    key                  = "env/shared<N>.tfstate"
+    key                  = "env/shared<N>.tfstate" # Update this
   }
 }
 ```

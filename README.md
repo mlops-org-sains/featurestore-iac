@@ -140,7 +140,7 @@ locals {
   }
 }
 ```
-- Both <N> value ie unique prefix should be the same
+- Both 'N' value ie unique prefix should be the same
 - Once done - run `terraform init -reconfigure` -> `terraform plan` to confirm the deployment will be for new resource group -> Finally `terraform apply`
 
 ## Architecture

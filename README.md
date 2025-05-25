@@ -121,6 +121,25 @@ terraform apply
 cd ../prod
 terraform apply
 ```
+### If you're using the same subscription where a default set of resource groups names (i.e., shared, dev, test, and prod) has already been deployed in a previous step, and you now want to create a new set of resource groups with customized name instead of the defaults, please follow this step. Otherwise, **you can skip it**. If you're running the previous step for the first time in this subscription, you **should also skip this step**.
+
+For each environemnt - shared, dev, test, and prod:
+- Update the backned.tf file (under terraform/environments/<dev or test..>) manually - ensuring unique key. E.g. `key = "env/dev.tfstate"` -> `key = "env/dev<N>.tfstate"`
+```
+key = "env/dev<N>.tfstate # Update this
+```
+- Update main.tf file to use a unique prefix - 
+```
+locals {
+  prefix = "mlops<N>" # Update this
+  env    = var.environment
+  tags = {
+      ...
+  }
+}
+```
+- Both <N> value ie unique prefix should be the same
+- Once done - run `terraform init -reconfigure` -> `terraform plan` to confirm the deployment will be for new resource group -> Finally `terraform apply`
 
 ## Architecture
 

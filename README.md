@@ -4,7 +4,7 @@ This directory contains the Terraform code for deploying the Azure MLOps infrast
 
 ## Setup & Prerequisites
 
-1. **Run the terraform code in Windowslaptop**
+1. **Run the terraform code in Windows laptop**
     - Requires VSCode in laptop
 
 2. **Install VSCode**
@@ -14,7 +14,7 @@ This directory contains the Terraform code for deploying the Azure MLOps infrast
    - Follow the instructions to install Git: [Install Git](https://www.windowscentral.com/how-clone-github-repos-windows-10-11-and-wsl)
 
 4. **Check Installed Libraries**
-   - Open the Terminal to check if the following libraries are installed:
+   - Open the CMD or Git Bash Terminal to check if the following libraries are installed:
    ```
     terraform -version
     ```

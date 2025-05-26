@@ -39,8 +39,15 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_costcentre"></a> [costcentre](#input\_costcentre) | Cost center for billing | `string` | n/a | yes |
+| <a name="input_dataClassification"></a> [dataClassification](#input\_dataClassification) | Classification of data stored | `string` | n/a | yes |
+| <a name="input_dataRetention"></a> [dataRetention](#input\_dataRetention) | Data retention period | `string` | n/a | yes |
+| <a name="input_email"></a> [email](#input\_email) | Contact email for the resources | `string` | n/a | yes |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment (dev, test, prod, shared) | `string` | `"dev"` | no |
+| <a name="input_live"></a> [live](#input\_live) | Indicates if the resource is live | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The Azure region where resources will be created | `string` | `"eastus"` | no |
+| <a name="input_servicecatalogueID"></a> [servicecatalogueID](#input\_servicecatalogueID) | Service catalogue ID | `string` | n/a | yes |
+| <a name="input_servicename"></a> [servicename](#input\_servicename) | Name of the service | `string` | n/a | yes |
 | <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | The Azure subscription ID | `string` | n/a | yes |
 | <a name="input_tenant_id"></a> [tenant\_id](#input\_tenant\_id) | The Azure tenant ID | `string` | n/a | yes |
 | <a name="input_tf_state_container"></a> [tf\_state\_container](#input\_tf\_state\_container) | The container name where Terraform state is stored | `string` | `"tfstate"` | no |

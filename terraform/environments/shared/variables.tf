@@ -35,3 +35,39 @@ variable "tf_state_container" {
   type        = string
   default     = "tfstate"
 }
+
+# Required tags
+variable "email" {
+  description = "Contact email for the resources"
+  type        = string
+}
+
+variable "costcentre" {
+  description = "Cost center for billing"
+  type        = string
+}
+
+variable "live" {
+  description = "Indicates if the resource is live"
+  type        = string
+}
+
+variable "servicename" {
+  description = "Name of the service"
+  type        = string
+}
+
+variable "servicecatalogueID" {
+  description = "Service catalogue ID"
+  type        = string
+}
+
+variable "dataRetention" {
+  description = "Data retention period"
+  type        = string
+}
+
+variable "dataClassification" {
+  description = "Classification of data stored"
+  type        = string
+}

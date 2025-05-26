@@ -51,3 +51,21 @@ variable "image_build_compute_name" {
   type        = string
   default     = "image-builder"
 }
+
+variable "user_principal_ids" {
+  description = "List of user/service principal object IDs to grant workspace access"
+  type        = list(string)
+  default     = []
+}
+
+variable "additional_workspace_readers" {
+  description = "List of principal IDs to grant Reader access to the workspace"
+  type        = list(string)
+  default     = []
+}
+
+variable "additional_workspace_contributors" {
+  description = "List of principal IDs to grant AzureML Data Scientist access to the workspace"
+  type        = list(string)
+  default     = []
+}

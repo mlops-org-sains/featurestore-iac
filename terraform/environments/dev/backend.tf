@@ -1,8 +1,7 @@
-# Auto-created using setup.sh script
 terraform {
   backend "azurerm" {
-    resource_group_name  = "terraform"
-    storage_account_name = "<>"
+    resource_group_name  = "terraform1"
+    storage_account_name = "terraformmlopsl34rsuxr"
     container_name       = "tfstate"
     key                  = "env/dev.tfstate"
     use_azuread_auth     = true

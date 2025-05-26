@@ -146,3 +146,25 @@ resource "azurerm_role_assignment" "compute_to_fs_storage" {
   role_definition_name = "Storage Blob Data Contributor"
   principal_id         = module.compute.compute_principal_id
 }
+
+# Compute Cluster Access Control
+# Grant compute cluster Contributor access to local workspace
+resource "azurerm_role_assignment" "compute_to_workspace" {
+  scope                = module.aml_workspace.workspace_id
+  role_definition_name = "Contributor"
+  principal_id         = module.compute.compute_principal_id
+}
+
+# Grant compute cluster Registry User access to shared registry
+resource "azurerm_role_assignment" "compute_to_registry_user" {
+  scope                = data.terraform_remote_state.shared.outputs.model_registry_id
+  role_definition_name = "AzureML Registry User"
+  principal_id         = module.compute.compute_principal_id
+}
+
+# Grant compute cluster Data Scientist access to shared registry
+resource "azurerm_role_assignment" "compute_to_registry_ds" {
+  scope                = data.terraform_remote_state.shared.outputs.model_registry_id
+  role_definition_name = "AzureML Data Scientist"
+  principal_id         = module.compute.compute_principal_id
+}

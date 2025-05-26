@@ -53,17 +53,17 @@ resource "azurerm_resource_group" "rg" {
   tags     = local.tags
 }
 
-module "networking" {
-  source = "../../modules/networking"
+# module "networking" {
+#   source = "../../modules/networking"
 
-  resource_group_name   = azurerm_resource_group.rg.name
-  location              = azurerm_resource_group.rg.location
-  vnet_name             = "${local.prefix}-${local.env}-vnet"
-  vnet_address_space    = ["10.1.0.0/16"]
-  subnet_name           = "${local.prefix}-${local.env}-subnet"
-  subnet_address_prefix = "10.1.0.0/24"
-  tags                  = local.tags
-}
+#   resource_group_name   = azurerm_resource_group.rg.name
+#   location              = azurerm_resource_group.rg.location
+#   vnet_name             = "${local.prefix}-${local.env}-vnet"
+#   vnet_address_space    = ["10.1.0.0/16"]
+#   subnet_name           = "${local.prefix}-${local.env}-subnet"
+#   subnet_address_prefix = "10.1.0.0/24"
+#   tags                  = local.tags
+# }
 
 module "storage" {
   source = "../../modules/storage"
@@ -74,7 +74,7 @@ module "storage" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
   is_hns_enabled           = false # Set to false for Azure ML compatibility
-  subnet_id                = module.networking.subnet_id
+  subnet_id                = null # module.networking.subnet_id
   tags                     = local.tags
 }
 
@@ -102,7 +102,7 @@ module "compute" {
   cpu_vm_size         = "Standard_DS3_v2"
   cpu_min_nodes       = 0
   cpu_max_nodes       = 2
-  subnet_id           = module.networking.subnet_id
+  subnet_id           = null # module.networking.subnet_id
   tags                = local.tags
 }
 

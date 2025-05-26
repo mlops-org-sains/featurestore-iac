@@ -129,3 +129,25 @@ module "registry_connection" {
   tags            = local.tags
   environment     = var.environment # Add the environment variable
 }
+
+# Feature Store Access Control
+# Grant workspace access to shared feature store
+resource "azurerm_role_assignment" "workspace_to_feature_store" {
+  scope                = data.terraform_remote_state.shared.outputs.feature_store_id
+  role_definition_name = "AzureML Data Scientist"
+  principal_id         = module.aml_workspace.principal_id
+}
+
+# Grant workspace access to shared feature store storage
+resource "azurerm_role_assignment" "workspace_to_fs_storage" {
+  scope                = data.terraform_remote_state.shared.outputs.shared_storage_account_id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = module.aml_workspace.principal_id
+}
+
+# Grant compute cluster access to shared feature store storage
+resource "azurerm_role_assignment" "compute_to_fs_storage" {
+  scope                = data.terraform_remote_state.shared.outputs.shared_storage_account_id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = module.compute.compute_principal_id
+}

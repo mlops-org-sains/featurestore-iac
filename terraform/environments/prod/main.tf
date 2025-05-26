@@ -74,7 +74,7 @@ module "storage" {
   account_tier             = "Standard"
   account_replication_type = "GRS" # Geographic redundancy for production
   is_hns_enabled           = false # Set to false for Azure ML compatibility
-  subnet_id                = null # module.networking.subnet_id
+  subnet_id                = null  # module.networking.subnet_id
   tags                     = local.tags
 }
 
@@ -101,7 +101,7 @@ module "compute" {
   cpu_cluster_name    = "${local.prefix}-${local.env}-cpu"
   cpu_vm_size         = "Standard_DS4_v2" # Larger VMs for production
   cpu_min_nodes       = 0
-  cpu_max_nodes       = 4 # More capacity for production
+  cpu_max_nodes       = 4    # More capacity for production
   subnet_id           = null # module.networking.subnet_id
   tags                = local.tags
 }
@@ -123,4 +123,26 @@ module "registry_connection" {
   location        = var.location
   tags            = local.tags
   environment     = var.environment
+}
+
+# Feature Store Access Control
+# Grant workspace access to shared feature store
+resource "azurerm_role_assignment" "workspace_to_feature_store" {
+  scope                = data.terraform_remote_state.shared.outputs.feature_store_id
+  role_definition_name = "AzureML Data Scientist"
+  principal_id         = module.aml_workspace.principal_id
+}
+
+# Grant workspace access to shared feature store storage
+resource "azurerm_role_assignment" "workspace_to_fs_storage" {
+  scope                = data.terraform_remote_state.shared.outputs.shared_storage_account_id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = module.aml_workspace.principal_id
+}
+
+# Grant compute cluster access to shared feature store storage
+resource "azurerm_role_assignment" "compute_to_fs_storage" {
+  scope                = data.terraform_remote_state.shared.outputs.shared_storage_account_id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = module.compute.compute_principal_id
 }

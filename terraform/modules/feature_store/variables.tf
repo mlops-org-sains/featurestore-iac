@@ -41,3 +41,9 @@ variable "offline_store_connection_name" {
   type        = string
   default     = "DefaultOfflineStoreConnection"
 }
+
+variable "enable_application_insights" {
+  description = "Flag to indicate whether to create Application Insights"
+  type        = bool
+  default     = false
+}

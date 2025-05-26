@@ -16,7 +16,7 @@ terraform {
 }
 
 locals {
-  prefix = "mlops"
+  prefix = "ml" # Shortened from "mlops" to avoid naming limits
   tags = {
     Environment        = title(var.environment)
     Project            = "MLOps Accelerator"

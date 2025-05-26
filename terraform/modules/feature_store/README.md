@@ -38,6 +38,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_enable_application_insights"></a> [enable\_application\_insights](#input\_enable\_application\_insights) | Flag to indicate whether to create Application Insights | `bool` | `false` | no |
 | <a name="input_feature_store_name"></a> [feature\_store\_name](#input\_feature\_store\_name) | The name of the Azure Machine Learning Feature Store | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The Azure region where resources will be created | `string` | n/a | yes |
 | <a name="input_offline_store_connection_name"></a> [offline\_store\_connection\_name](#input\_offline\_store\_connection\_name) | The name of the offline store connection | `string` | `"DefaultOfflineStoreConnection"` | no |

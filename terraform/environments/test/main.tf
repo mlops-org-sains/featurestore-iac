@@ -31,7 +31,7 @@ resource "random_string" "storage_suffix" {
 }
 
 locals {
-  prefix = "mlops"
+  prefix = "ml" # Shortened from "mlops" to avoid naming limits
   env    = var.environment
   tags = {
     Environment        = title(var.environment)

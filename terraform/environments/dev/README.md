@@ -23,7 +23,6 @@
 |------|--------|---------|
 | <a name="module_aml_workspace"></a> [aml\_workspace](#module\_aml\_workspace) | ../../modules/aml_workspace | n/a |
 | <a name="module_compute"></a> [compute](#module\_compute) | ../../modules/compute | n/a |
-| <a name="module_networking"></a> [networking](#module\_networking) | ../../modules/networking | n/a |
 | <a name="module_registry_connection"></a> [registry\_connection](#module\_registry\_connection) | ../../modules/registry_connection | n/a |
 | <a name="module_storage"></a> [storage](#module\_storage) | ../../modules/storage | n/a |
 

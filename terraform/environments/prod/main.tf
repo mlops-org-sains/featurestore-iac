@@ -31,7 +31,7 @@ resource "random_string" "storage_suffix" {
 }
 
 locals {
-  prefix = "mlops"
+  prefix = "ml" # Shortened from "mlops" to avoid naming limits
   env    = var.environment
   tags = {
     Environment        = title(var.environment)
@@ -85,9 +85,9 @@ module "aml_workspace" {
   location                      = azurerm_resource_group.rg.location
   workspace_name                = "${local.prefix}-${local.env}-ws"
   storage_account_id            = module.storage.storage_account_id
-  key_vault_id                  = null  # Will be created by the module
-  application_insights_id       = null  # Will be created by the module
-  container_registry_id         = null  # Will be created by the module
+  key_vault_id                  = null # Will be created by the module
+  application_insights_id       = null # Will be created by the module
+  container_registry_id         = null # Will be created by the module
   public_network_access_enabled = true # WORKSHOP: Enabled for cross-environment demo
   tags                          = local.tags
 }
